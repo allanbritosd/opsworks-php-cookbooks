@@ -17,7 +17,7 @@ node.override['php']['directives'] = {
 
 case node[:platform]
   when 'rhel', 'fedora', 'suse', 'centos'
-    node.override['php']['packages'] = ['php70w', 'php70w-devel', 'php70w-cli', 'php70w-bcmath', 'php70w-snmp', 'php70w-soap', 'php70w-xml', 'php70w-xmlrpc', 'php70w-process', 'php70w-mysqlnd', 'php70w-opcache', 'php70w-pdo', 'php70w-imap', 'php70w-mbstring', 'php70w-intl', 'php70w-mcrypt', 'php70w-gd']
+    node.override['php']['packages'] = ['php70-common', 'php70w', 'php70w-devel', 'php70w-cli', 'php70w-bcmath', 'php70w-snmp', 'php70w-soap', 'php70w-xml', 'php70w-xmlrpc', 'php70w-process', 'php70w-mysqlnd', 'php70w-opcache', 'php70w-pdo', 'php70w-imap', 'php70w-mbstring', 'php70w-intl', 'php70w-mcrypt', 'php70w-gd']
 
     # add the EPEL repo
     yum_repository 'epel' do
@@ -41,7 +41,7 @@ case node[:platform]
     include_recipe "apache2::mod_rewrite"
 
  when 'amazon'
-    node.override['php']['packages'] = ['php70', 'php70-devel', 'php70-cli', 'php70-bcmath', 'php70-snmp', 'php70-soap', 'php70-xml', 'php70-xmlrpc', 'php70-process', 'php70-mysqlnd', 'php70-opcache', 'php70-pdo', 'php70-imap', 'php70-mbstring', 'php70-intl', 'php70-mcrypt', 'php70-gd']
+    node.override['php']['packages'] = ['php70', 'php70-common', 'php70-devel', 'php70-cli', 'php70-bcmath', 'php70-snmp', 'php70-soap', 'php70-xml', 'php70-xmlrpc', 'php70-process', 'php70-mysqlnd', 'php70-opcache', 'php70-pdo', 'php70-imap', 'php70-mbstring', 'php70-intl', 'php70-mcrypt', 'php70-gd']
 
     include_recipe "php::package"
     include_recipe "php::ini"
